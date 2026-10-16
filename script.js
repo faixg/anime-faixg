@@ -1,87 +1,41 @@
-const animeData = [
-  {id:1,title:"Атака титанов",english:"Attack on Titan",year:2013,episodes:"4 сезона",rating:9.1,genres:["Экшен","Драма"],glyph:"進",label:"THE WALL",bg:"#21151d",glow:"#d52d56",description:"Человечество прячется за огромными стенами, пытаясь выжить в мире, где за их пределами бродят титаны. История о свободе, страхе и цене правды."},
-  {id:2,title:"Берсерк",english:"Berserk",year:1997,episodes:"25 серий",rating:8.7,genres:["Экшен","Фэнтези","Драма"],glyph:"烙",label:"DARK FANTASY",bg:"#17141d",glow:"#8740a8",description:"Мрачное тёмное фэнтези о наёмнике Гатсе, судьбе и борьбе человека с жестоким миром. В этом демо карточка представлена как стилизованная заглушка."},
-  {id:3,title:"Магическая битва",english:"Jujutsu Kaisen",year:2020,episodes:"2 сезона",rating:8.6,genres:["Экшен","Сёнэн"],glyph:"呪",label:"CURSED ENERGY",bg:"#101a2c",glow:"#3867ff",description:"Юдзи Итадори оказывается втянут в мир проклятий и магов после опасной встречи с древним артефактом. Динамичные сражения, команда и тёмная атмосфера."},
-  {id:4,title:"Ван-Пис",english:"One Piece",year:1999,episodes:"1000+ серий",rating:9.0,genres:["Приключения","Сёнэн"],glyph:"海",label:"THE GRAND LINE",bg:"#10252c",glow:"#2cb7c4",description:"Монки Д. Луффи и его команда отправляются в большое путешествие по морям в поисках легендарного сокровища. История о дружбе, мечтах и свободе."},
-  {id:5,title:"Вайолет Эвергарден",english:"Violet Evergarden",year:2018,episodes:"13 серий",rating:8.5,genres:["Драма"],glyph:"愛",label:"LETTERS & FEELINGS",bg:"#26202d",glow:"#b28ae5",description:"Бывшая солдатка учится понимать чувства людей, работая автором писем. Тихая, эмоциональная история о памяти, словах и поиске себя."},
-  {id:6,title:"Клинок, рассекающий демонов",english:"Demon Slayer",year:2019,episodes:"4 сезона",rating:8.7,genres:["Экшен","Фэнтези","Сёнэн"],glyph:"滅",label:"BLADE OF DESTINY",bg:"#291819",glow:"#ed713e",description:"Тандзиро вступает в отряд охотников на демонов, чтобы защитить людей и помочь своей сестре. Яркие бои, сильные эмоции и японский фольклор."},
-  {id:7,title:"Поднятие уровня в одиночку",english:"Solo Leveling",year:2024,episodes:"2 сезона",rating:8.8,genres:["Экшен","Фэнтези"],glyph:"影",label:"LEVEL UP",bg:"#101629",glow:"#4c71ff",description:"В мире охотников Сон Джин-у получает необычную возможность становиться сильнее после каждого испытания. История роста, риска и силы воли."},
-  {id:8,title:"Охотник х Охотник",english:"Hunter × Hunter",year:2011,episodes:"148 серий",rating:9.0,genres:["Приключения","Сёнэн"],glyph:"狩",label:"HUNTER EXAM",bg:"#14251e",glow:"#44ba82",description:"Гон отправляется на экзамен охотников, чтобы найти отца. На пути его ждут друзья, непростые испытания и большой мир, полный тайн."}
+const anime=[
+{id:1,title:"Атака титанов",year:2013,rating:9.1,genres:["Экшен","Драма"],glyph:"進",poster:"#25121b",glow:"#d52d56",label:"THE WALL",desc:"Человечество прячется за огромными стенами, пытаясь выжить в мире титанов. История о свободе, страхе и цене правды."},
+{id:2,title:"Берсерк",year:1997,rating:8.7,genres:["Экшен","Фэнтези","Драма"],glyph:"烙",poster:"#19121d",glow:"#8740a8",label:"DARK FANTASY",desc:"Мрачное тёмное фэнтези о Гатсе, судьбе и борьбе человека с жестоким миром."},
+{id:3,title:"Магическая битва",year:2020,rating:8.6,genres:["Экшен","Сёнэн"],glyph:"呪",poster:"#101a2c",glow:"#3867ff",label:"CURSED ENERGY",desc:"Юдзи Итадори оказывается втянут в мир проклятий и магов после встречи с древним артефактом."},
+{id:4,title:"Ван-Пис",year:1999,rating:9.0,genres:["Приключения","Сёнэн"],glyph:"海",poster:"#10252c",glow:"#2cb7c4",label:"THE GRAND LINE",desc:"Луффи и его команда отправляются в путешествие по морям в поисках легендарного сокровища."},
+{id:5,title:"Вайолет Эвергарден",year:2018,rating:8.5,genres:["Драма"],glyph:"愛",poster:"#26202d",glow:"#b28ae5",label:"LETTERS",desc:"Бывшая солдатка учится понимать чувства людей, работая автором писем."},
+{id:6,title:"Клинок, рассекающий демонов",year:2019,rating:8.7,genres:["Экшен","Фэнтези","Сёнэн"],glyph:"滅",poster:"#291819",glow:"#ed713e",label:"BLADE OF DESTINY",desc:"Тандзиро вступает в отряд охотников на демонов, чтобы защитить людей и помочь сестре."},
+{id:7,title:"Поднятие уровня в одиночку",year:2024,rating:8.8,genres:["Экшен","Фэнтези"],glyph:"影",poster:"#101629",glow:"#4c71ff",label:"LEVEL UP",desc:"Сон Джин-у получает необычную возможность становиться сильнее после каждого испытания."},
+{id:8,title:"Охотник х Охотник",year:2011,rating:9.0,genres:["Приключения","Сёнэн"],glyph:"狩",poster:"#14251e",glow:"#44ba82",label:"HUNTER EXAM",desc:"Гон отправляется на экзамен охотников, чтобы найти отца. На пути его ждут друзья и испытания."}
 ];
-const $ = s => document.querySelector(s);
-const grid = $("#animeGrid"), favGrid = $("#favoritesGrid");
-let favorites = new Set(JSON.parse(localStorage.getItem("animeFaixgFavorites") || "[]"));
-let activeGenre = "all", searchText = "", sortMode = "featured", modalAnime = null, toastTimer;
-const safeText = value => String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function cardMarkup(a){
-  const saved = favorites.has(a.id);
-  return `<article class="anime-card" data-id="${a.id}" tabindex="0" role="button" aria-label="Подробнее: ${safeText(a.title)}">
-    <div class="poster" style="--poster-bg:${a.bg};--poster-glow:${a.glow}">
-      <span class="poster-glyph">${a.glyph}</span><span class="poster-label">${a.label}</span><span class="poster-number">AF / ${String(a.id).padStart(2,"0")}</span>
-      <button class="favorite-btn ${saved?"saved":""}" data-fav="${a.id}" aria-label="${saved?"Убрать из избранного":"Добавить в избранное"}">${saved?"♥":"♡"}</button>
-    </div>
-    <div class="card-body"><div class="card-topline"><span class="card-year">${a.year} · ${a.episodes}</span><span class="rating">★ ${a.rating.toFixed(1)}</span></div>
-      <h3 class="card-title" title="${safeText(a.title)}">${safeText(a.title)}</h3>
-      <div class="card-tags">${a.genres.slice(0,2).map(g=>`<span class="tag">${g}</span>`).join("")}</div>
-      <div class="card-bottom"><b>Открыть описание</b><span class="card-arrow">↗</span></div>
-    </div></article>`;
-}
-function getFiltered(){
-  let items = animeData.filter(a => (activeGenre==="all" || a.genres.includes(activeGenre)) && (a.title+" "+a.english).toLowerCase().includes(searchText.toLowerCase()));
-  if(sortMode==="rating") items.sort((a,b)=>b.rating-a.rating);
-  else if(sortMode==="az") items.sort((a,b)=>a.title.localeCompare(b.title,"ru"));
-  else items.sort((a,b)=>Number(favorites.has(b.id))-Number(favorites.has(a.id)) || a.id-b.id);
-  return items;
-}
-function render(){
-  const items=getFiltered();
-  grid.innerHTML=items.map(cardMarkup).join("");
-  $("#resultsLabel").textContent=`${items.length} ${items.length===1?"тайтл":items.length>=2&&items.length<=4?"тайтла":"тайтлов"}`;
-  $("#emptyState").classList.toggle("hidden",items.length!==0);
-  $("#animeGrid").classList.toggle("hidden",items.length===0);
-  const favs=animeData.filter(a=>favorites.has(a.id));
-  favGrid.innerHTML=favs.map(cardMarkup).join("");
-  $("#favoritesEmpty").classList.toggle("hidden",favs.length>0);
-  $("#favoritesGrid").classList.toggle("hidden",favs.length===0);
-  $("#favCount").textContent=favorites.size;
-}
-function toast(message){const el=$("#toast");el.textContent=message;el.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),2200)}
-function toggleFavorite(id){
-  if(favorites.has(id)){favorites.delete(id);toast("Удалено из избранного");}
-  else {favorites.add(id);toast("Добавлено в избранное ♥");}
-  localStorage.setItem("animeFaixgFavorites",JSON.stringify([...favorites]));render();
-  if(modalAnime&&modalAnime.id===id) updateModalFavorite();
-}
-function openModal(id){
-  const a=animeData.find(x=>x.id===id);if(!a)return;modalAnime=a;
-  $("#modalArt").style.setProperty("--poster-bg",a.bg);$("#modalArt").style.setProperty("--poster-glow",a.glow);$("#modalArt").innerHTML=`<span>${a.glyph}</span>`;
-  $("#modalTags").innerHTML=a.genres.map(g=>`<span class="tag">${g}</span>`).join("");
-  $("#modalTitle").textContent=a.title;$("#modalMeta").textContent=`★ ${a.rating.toFixed(1)}  ·  ${a.year}  ·  ${a.episodes}  ·  ${a.english}`;
-  $("#modalDescription").textContent=a.description;updateModalFavorite();
-  $("#animeModal").classList.remove("hidden");document.body.style.overflow="hidden";$("#modalClose").focus();
-}
-function updateModalFavorite(){if(!modalAnime)return;const saved=favorites.has(modalAnime.id);$("#modalFavorite").textContent=saved?"♥ Убрать из избранного":"♡ Добавить в избранное";}
-function closeModal(){$("#animeModal").classList.add("hidden");document.body.style.overflow="";modalAnime=null}
-function resetFilters(){activeGenre="all";searchText="";sortMode="featured";$("#searchInput").value="";$("#genreSelect").value="all";$("#sortSelect").value="featured";document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c.dataset.genre==="all"));render()}
-$("#searchInput").addEventListener("input",e=>{searchText=e.target.value;render()});
-$("#genreSelect").addEventListener("change",e=>{activeGenre=e.target.value;document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c.dataset.genre===activeGenre));render()});
-$("#sortSelect").addEventListener("change",e=>{sortMode=e.target.value;render()});
-$("#genreChips").addEventListener("click",e=>{const chip=e.target.closest("[data-genre]");if(!chip)return;activeGenre=chip.dataset.genre;$("#genreSelect").value=activeGenre;document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c===chip));render()});
-document.addEventListener("click",e=>{
-  const fav=e.target.closest("[data-fav]");if(fav){e.stopPropagation();toggleFavorite(Number(fav.dataset.fav));return}
-  const card=e.target.closest(".anime-card");if(card){openModal(Number(card.dataset.id));return}
-  if(e.target.dataset.close==="true")closeModal();
-});
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape")closeModal();
-  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==="k"){e.preventDefault();$("#searchInput").focus()}
-  if((e.key==="Enter"||e.key===" ")&&e.target.matches(".anime-card")){e.preventDefault();openModal(Number(e.target.dataset.id))}
-});
-$("#modalClose").addEventListener("click",closeModal);
-$("#modalFavorite").addEventListener("click",()=>{if(modalAnime)toggleFavorite(modalAnime.id)});
-$("#randomBtn").addEventListener("click",()=>{const items=getFiltered();const chosen=items[Math.floor(Math.random()*items.length)];if(chosen)openModal(chosen.id);else toast("Сначала сбрось фильтры")});
-$("#resetBtn").addEventListener("click",resetFilters);
-$("#themeBtn").addEventListener("click",()=>{document.body.classList.toggle("alt-accent");toast(document.body.classList.contains("alt-accent")?"Фиолетовый акцент включён":"Красный акцент включён")});
-$("#mobileMenuBtn").addEventListener("click",()=>{const nav=$("#mobileNav"),open=nav.classList.toggle("open");$("#mobileMenuBtn").setAttribute("aria-expanded",String(open));$("#mobileMenuBtn").textContent=open?"×":"☰"});
-$("#mobileNav").addEventListener("click",e=>{if(e.target.closest("a")){$("#mobileNav").classList.remove("open");$("#mobileMenuBtn").setAttribute("aria-expanded","false");$("#mobileMenuBtn").textContent="☰"}});
-render();
+const $=s=>document.querySelector(s);
+const USERS_KEY="animeFaixgDemoUsers_v2", SESSION_KEY="animeFaixgDemoSession_v2";
+let mode="login", currentUser=null, toastTimer;
+function users(){try{return JSON.parse(localStorage.getItem(USERS_KEY)||"{}")}catch{return {}}}
+function saveUsers(u){localStorage.setItem(USERS_KEY,JSON.stringify(u))}
+function favKey(){return "animeFaixgFavs_"+(currentUser?currentUser.email:"guest")}
+function favorites(){try{return JSON.parse(localStorage.getItem(favKey())||"[]")}catch{return []}}
+function saveFavorites(ids){localStorage.setItem(favKey(),JSON.stringify(ids))}
+function toast(s){const t=$("#toast");t.textContent=s;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),2300)}
+function card(a){const saved=favorites().includes(a.id);return `<article class="card" tabindex="0" data-id="${a.id}"><div class="poster" style="--poster:${a.poster};--glow:${a.glow}"><span class="glyph">${a.glyph}</span><span class="poster-label">${a.label}</span><button class="heart ${saved?"saved":""}" data-fav="${a.id}" aria-label="Избранное">${saved?"♥":"♡"}</button></div><div class="card-body"><div class="meta"><span>${a.year}</span><span class="rating">★ ${a.rating.toFixed(1)}</span></div><h3>${a.title}</h3><div class="tags">${a.genres.slice(0,2).map(g=>`<span class="tag">${g}</span>`).join("")}</div></div></article>`}
+function render(){const q=$("#search").value.trim().toLowerCase(),g=$("#genre").value;const list=anime.filter(a=>(g==="all"||a.genres.includes(g))&&a.title.toLowerCase().includes(q));$("#grid").innerHTML=list.map(card).join("");$("#count").textContent=`${list.length} тайтлов`;const fav=anime.filter(a=>favorites().includes(a.id));$("#favGrid").innerHTML=fav.map(card).join("");$("#favEmpty").classList.toggle("hidden",fav.length>0);$("#favGrid").classList.toggle("hidden",fav.length===0)}
+function updateAccountUI(){const signed=!!currentUser;$("#accountBtnText").textContent=signed?(currentUser.username||currentUser.email.split("@")[0]):"Войти";$("#accountAvatar").textContent=signed?(currentUser.username||currentUser.email[0]).charAt(0).toUpperCase():"♙";$("#profileSection").classList.toggle("hidden",!signed);if(signed){$("#profileAvatar").textContent=(currentUser.username||currentUser.email[0]).charAt(0).toUpperCase();$("#profileName").textContent="Привет, "+(currentUser.username||currentUser.email.split("@")[0])+"!";$("#profileEmail").textContent=currentUser.email}render()}
+function openAuth(next="login"){$("#authModal").classList.remove("hidden");setMode(next);$("#authError").textContent="";$("#email").focus()}
+function closeAuth(){$("#authModal").classList.add("hidden");$("#authForm").reset();$("#authError").textContent=""}
+function setMode(next){mode=next;const reg=mode==="register";$("#loginTab").classList.toggle("active",!reg);$("#registerTab").classList.toggle("active",reg);$("#authTitle").textContent=reg?"Создай аккаунт.":"С возвращением.";$("#authSubtitle").textContent=reg?"Зарегистрируйся, чтобы создать профиль.":"Войди, чтобы открыть свой профиль.";$("#nameLabel").classList.toggle("hidden",!reg);$("#username").required=reg;$("#password").autocomplete=reg?"new-password":"current-password";$("#submitAuth").textContent=reg?"Создать аккаунт":"Войти";$("#authError").textContent=""}
+function bytesToHex(buffer){return [...new Uint8Array(buffer)].map(b=>b.toString(16).padStart(2,"0")).join("")}
+function randomSalt(){const b=new Uint8Array(16);crypto.getRandomValues(b);return bytesToHex(b)}
+async function passwordHash(password,salt){const enc=new TextEncoder();const key=await crypto.subtle.importKey("raw",enc.encode(password),"PBKDF2",false,["deriveBits"]);const bits=await crypto.subtle.deriveBits({name:"PBKDF2",salt:enc.encode(salt),iterations:120000,hash:"SHA-256"},key,256);return bytesToHex(bits)}
+$("#accountBtn").addEventListener("click",()=>currentUser?$("#profileSection").scrollIntoView({behavior:"smooth"}):openAuth());
+$("#logoutBtn").addEventListener("click",()=>{currentUser=null;localStorage.removeItem(SESSION_KEY);updateAccountUI();toast("Ты вышел из аккаунта")});
+$("#loginTab").addEventListener("click",()=>setMode("login"));$("#registerTab").addEventListener("click",()=>setMode("register"));
+$("#closeAuth").addEventListener("click",closeAuth);$("#authModal").addEventListener("click",e=>{if(e.target.hasAttribute("data-close"))closeAuth()});
+$("#authForm").addEventListener("submit",async e=>{e.preventDefault();const email=$("#email").value.trim().toLowerCase(),password=$("#password").value,username=$("#username").value.trim();const btn=$("#submitAuth");btn.disabled=true;btn.textContent="Подожди…";$("#authError").textContent="";
+try{const all=users();if(mode==="register"){if(username.length<2){throw Error("Имя должно содержать минимум 2 символа.")}if(password.length<8){throw Error("Пароль должен содержать минимум 8 символов.")}if(all[email]){throw Error("Аккаунт с таким email уже существует.")}const salt=randomSalt(),hash=await passwordHash(password,salt);all[email]={email,username,salt,hash,createdAt:Date.now()};saveUsers(all);currentUser={email,username};localStorage.setItem(SESSION_KEY,email);closeAuth();updateAccountUI();toast("Аккаунт создан! Добро пожаловать.");}
+else{const user=all[email];if(!user){throw Error("Аккаунт не найден. Возможно, нужно зарегистрироваться на этом устройстве.")}const hash=await passwordHash(password,user.salt);if(hash!==user.hash){throw Error("Неверный email или пароль.")}currentUser={email:user.email,username:user.username};localStorage.setItem(SESSION_KEY,email);closeAuth();updateAccountUI();toast("С возвращением!");}}
+catch(err){$("#authError").textContent=err.message||"Не удалось выполнить действие."}finally{btn.disabled=false;btn.textContent=mode==="register"?"Создать аккаунт":"Войти"}});
+$("#search").addEventListener("input",render);$("#genre").addEventListener("change",render);
+document.addEventListener("click",e=>{const fav=e.target.closest("[data-fav]");if(fav){e.stopPropagation();const id=Number(fav.dataset.fav),ids=favorites();if(ids.includes(id)){saveFavorites(ids.filter(x=>x!==id));toast("Убрано из избранного")}else{saveFavorites([...ids,id]);toast("Добавлено в избранное ♥")}render();return}const c=e.target.closest(".card");if(c){const a=anime.find(x=>x.id===Number(c.dataset.id));if(a)toast(a.title+" — "+a.desc)}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAuth();if((e.key==="Enter"||e.key===" ")&&e.target.matches(".card")){e.preventDefault();const a=anime.find(x=>x.id===Number(e.target.dataset.id));if(a)toast(a.title+" — "+a.desc)}});
+async function init(){const email=localStorage.getItem(SESSION_KEY),u=email&&users()[email];if(u)currentUser={email:u.email,username:u.username};updateAccountUI()}
+init();

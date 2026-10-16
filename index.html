@@ -1,91 +1,58 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#09090d" />
-  <meta name="description" content="ANIME.FAIXG — тёмный интерактивный каталог аниме." />
-  <title>ANIME.FAIXG — Anime Library</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09090d"><title>ANIME.FAIXG — Anime Library</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="ambient ambient-one"></div>
-  <div class="ambient ambient-two"></div>
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="Anime Faixg — главная"><span class="brand-mark">A</span><span>ANIME<span class="accent">.</span>FAIXG</span></a>
-    <nav class="desktop-nav" aria-label="Основная навигация">
-      <a class="nav-link active" href="#catalog">Каталог</a>
-      <a class="nav-link" href="#about">О проекте</a>
-      <a class="nav-link" href="#favorites">Избранное <span id="favCount" class="tiny-count">0</span></a>
-    </nav>
-    <button id="mobileMenuBtn" class="icon-button mobile-menu-btn" aria-label="Открыть меню" aria-expanded="false">☰</button>
-    <button id="themeBtn" class="icon-button theme-button" aria-label="Переключить акцент">◐</button>
-  </header>
-  <nav id="mobileNav" class="mobile-nav" aria-label="Мобильная навигация">
-    <a href="#catalog">Каталог</a><a href="#about">О проекте</a><a href="#favorites">Избранное</a>
-  </nav>
+<header class="topbar">
+  <a class="brand" href="#"><span class="logo">A</span> ANIME<span class="red">.FAIXG</span></a>
+  <nav><a href="#catalog">Каталог</a><a href="#favorites">Избранное</a></nav>
+  <button id="accountBtn" class="account-btn"><span id="accountAvatar">♙</span><span id="accountBtnText">Войти</span></button>
+</header>
+<main>
+<section class="hero">
+ <div class="eyebrow">✦ ТВОЯ АНИМЕ-БИБЛИОТЕКА</div>
+ <h1>Истории,<br><span>которые остаются.</span></h1>
+ <p>Находи новые миры, собирай любимые тайтлы и создай собственную аниме-коллекцию.</p>
+ <a class="primary" href="#catalog">Исследовать каталог ↘</a>
+ <div class="hero-note">ТЁМНАЯ ТЕМА · ТВОЯ КОЛЛЕКЦИЯ · ТВОИ ПРАВИЛА</div>
+</section>
+<section id="profileSection" class="profile hidden">
+ <div class="profile-avatar" id="profileAvatar">A</div>
+ <div class="profile-info"><div class="eyebrow">ЛИЧНЫЙ ПРОФИЛЬ</div><h2 id="profileName">Привет!</h2><p id="profileEmail"></p></div>
+ <button id="logoutBtn" class="outline">Выйти</button>
+</section>
+<section id="catalog" class="section">
+ <div class="heading"><div><div class="eyebrow">ВЫБИРАЙ СЛЕДУЮЩУЮ ИСТОРИЮ</div><h2>Каталог <span class="red">аниме</span></h2></div><span id="count" class="muted">8 тайтлов</span></div>
+ <div class="filters"><input id="search" placeholder="⌕  Поиск по названию..." type="search"><select id="genre"><option value="all">Все жанры</option><option>Экшен</option><option>Фэнтези</option><option>Драма</option><option>Приключения</option><option>Сёнэн</option></select></div>
+ <div id="grid" class="grid"></div>
+</section>
+<section id="favorites" class="section favorites-section">
+ <div class="heading"><div><div class="eyebrow">ТВОЯ ЛИЧНАЯ ПОДБОРКА</div><h2>Избранное <span class="red">♥</span></h2></div></div>
+ <p class="muted">Добавляй тайтлы сердечком на карточках. Избранное привязано к текущему профилю в этом браузере.</p>
+ <div id="favGrid" class="grid"></div><p id="favEmpty" class="empty">Пока пусто — добавь первое аниме в избранное.</p>
+</section>
+<section class="about"><div class="logo big">A<span class="red">.</span>F</div><div><div class="eyebrow">ANIME.FAIXG</div><h2>Твой мир аниме.</h2><p>Учебный проект. Аккаунты в этой версии работают локально в текущем браузере. Для настоящих аккаунтов между устройствами нужен сервер авторизации.</p></div></section>
+</main>
+<footer><span class="brand"><span class="logo">A</span> ANIME<span class="red">.FAIXG</span></span><span>Учебный проект · 2026</span></footer>
 
-  <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="live-dot"></span> ТВОЯ АНИМЕ-БИБЛИОТЕКА</div>
-        <h1>Истории,<br /><span class="gradient-text">которые остаются.</span></h1>
-        <p class="hero-description">Находи новые миры, сохраняй любимое и собирай свою коллекцию аниме.</p>
-        <div class="hero-actions">
-          <a class="primary-btn" href="#catalog">Исследовать каталог <span>↘</span></a>
-          <button class="secondary-btn" id="randomBtn">✦ Случайное аниме</button>
-        </div>
-        <div class="hero-stats"><div><strong>08</strong><span>аниме в демо</span></div><i></i><div><strong>∞</strong><span>историй впереди</span></div></div>
-      </div>
-      <div class="hero-art" aria-label="Атмосферная иллюстрация">
-        <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
-        <div class="art-glow"></div>
-        <div class="art-kanji">夢</div>
-        <div class="art-caption"><span>FEATURED</span><b>YOUR NEXT<br />OBSESSION</b></div>
-        <div class="art-index">01 <span>/</span> 08</div>
-        <div class="art-line"></div>
-      </div>
-    </section>
-
-    <section id="catalog" class="catalog-section">
-      <div class="section-heading">
-        <div><div class="eyebrow">ОТКРОЙ СВОЮ ИСТОРИЮ</div><h2>Каталог <span class="accent">аниме</span></h2></div>
-        <span class="results-label" id="resultsLabel">8 тайтлов</span>
-      </div>
-      <div class="toolbar">
-        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Название аниме..." autocomplete="off" /><kbd>⌘ K</kbd></label>
-        <div class="toolbar-selects">
-          <select id="genreSelect" aria-label="Фильтр по жанру"><option value="all">Все жанры</option><option value="Экшен">Экшен</option><option value="Фэнтези">Фэнтези</option><option value="Драма">Драма</option><option value="Приключения">Приключения</option><option value="Сёнэн">Сёнэн</option></select>
-          <select id="sortSelect" aria-label="Сортировка"><option value="featured">Сначала избранные</option><option value="rating">Высокий рейтинг</option><option value="az">По названию А—Я</option></select>
-        </div>
-      </div>
-      <div id="genreChips" class="genre-chips">
-        <button class="chip active" data-genre="all">Все</button><button class="chip" data-genre="Экшен">Экшен</button><button class="chip" data-genre="Фэнтези">Фэнтези</button><button class="chip" data-genre="Драма">Драма</button><button class="chip" data-genre="Приключения">Приключения</button>
-      </div>
-      <div id="animeGrid" class="anime-grid" aria-live="polite"></div>
-      <div id="emptyState" class="empty-state hidden"><span>✦</span><h3>Ничего не найдено</h3><p>Попробуй другое название или жанр.</p><button id="resetBtn" class="secondary-btn">Сбросить фильтры</button></div>
-    </section>
-
-    <section id="favorites" class="favorites-section">
-      <div class="section-heading compact-heading"><div><div class="eyebrow">ТВОЯ ЛИЧНАЯ ПОДБОРКА</div><h2>Избранное <span class="accent">♥</span></h2></div></div>
-      <p class="section-note">Нажимай на сердечко у карточки — любимые тайтлы появятся здесь. Список сохраняется на этом устройстве.</p>
-      <div id="favoritesGrid" class="anime-grid favorites-grid"></div>
-      <div id="favoritesEmpty" class="favorites-empty"><span>♡</span> Пока здесь пусто — добавь аниме в избранное.</div>
-    </section>
-
-    <section id="about" class="about-section">
-      <div class="about-symbol">A<span>.</span>F</div>
-      <div><div class="eyebrow">НЕБОЛЬШОЙ ПРОЕКТ С БОЛЬШОЙ ИДЕЕЙ</div><h2>Создано для тех,<br />кто любит <span class="gradient-text">аниме.</span></h2><p>ANIME.FAIXG — учебный макет сайта. Здесь можно искать тайтлы, фильтровать каталог и сохранять избранное. Позже сюда можно добавить реальные постеры, страницы серий и базу данных.</p></div>
-    </section>
-  </main>
-
-  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">A</span><span>ANIME<span class="accent">.</span>FAIXG</span></a><span>Учебный проект · Сделано с ✦</span><a href="#catalog">Наверх ↑</a></footer>
-
-  <div id="animeModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-backdrop" data-close="true"></div>
-    <article class="modal-card"><button class="modal-close" id="modalClose" aria-label="Закрыть">×</button><div id="modalArt" class="modal-art"></div><div class="modal-content"><div id="modalTags" class="modal-tags"></div><h2 id="modalTitle"></h2><div id="modalMeta" class="modal-meta"></div><p id="modalDescription"></p><button id="modalFavorite" class="primary-btn">♡ Добавить в избранное</button></div></article>
-  </div>
-  <div id="toast" class="toast" role="status"></div>
-  <script src="script.js"></script>
-</body>
-</html>
+<div id="authModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+ <div class="backdrop" data-close></div><div class="dialog">
+  <button id="closeAuth" class="close" aria-label="Закрыть">×</button>
+  <div class="eyebrow">ТВОЯ ЛИЧНАЯ КОЛЛЕКЦИЯ</div><h2 id="authTitle">С возвращением.</h2><p id="authSubtitle" class="muted">Войди, чтобы открыть свой профиль.</p>
+  <div class="tabs"><button id="loginTab" class="tab active">Вход</button><button id="registerTab" class="tab">Регистрация</button></div>
+  <form id="authForm">
+   <label id="nameLabel" class="hidden">Имя пользователя<input id="username" autocomplete="nickname" maxlength="24" placeholder="Например, faixg"></label>
+   <label>Email<input id="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+   <label>Пароль<input id="password" type="password" autocomplete="current-password" required minlength="8" placeholder="Минимум 8 символов"></label>
+   <p id="authError" class="error" aria-live="polite"></p>
+   <button id="submitAuth" class="primary full" type="submit">Войти</button>
+  </form>
+  <p class="disclaimer">Демо-режим: профиль хранится только на этом устройстве. Не используй здесь пароль от других аккаунтов.</p>
+ </div>
+</div>
+<div id="toast" class="toast"></div>
+<script src="script.js"></script>
+</body></html>
