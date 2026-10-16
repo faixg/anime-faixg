@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#09090d" />
+  <meta name="description" content="ANIME.FAIXG — тёмный интерактивный каталог аниме." />
+  <title>ANIME.FAIXG — Anime Library</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Anime Faixg — главная"><span class="brand-mark">A</span><span>ANIME<span class="accent">.</span>FAIXG</span></a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a class="nav-link active" href="#catalog">Каталог</a>
+      <a class="nav-link" href="#about">О проекте</a>
+      <a class="nav-link" href="#favorites">Избранное <span id="favCount" class="tiny-count">0</span></a>
+    </nav>
+    <button id="mobileMenuBtn" class="icon-button mobile-menu-btn" aria-label="Открыть меню" aria-expanded="false">☰</button>
+    <button id="themeBtn" class="icon-button theme-button" aria-label="Переключить акцент">◐</button>
+  </header>
+  <nav id="mobileNav" class="mobile-nav" aria-label="Мобильная навигация">
+    <a href="#catalog">Каталог</a><a href="#about">О проекте</a><a href="#favorites">Избранное</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> ТВОЯ АНИМЕ-БИБЛИОТЕКА</div>
+        <h1>Истории,<br /><span class="gradient-text">которые остаются.</span></h1>
+        <p class="hero-description">Находи новые миры, сохраняй любимое и собирай свою коллекцию аниме.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#catalog">Исследовать каталог <span>↘</span></a>
+          <button class="secondary-btn" id="randomBtn">✦ Случайное аниме</button>
+        </div>
+        <div class="hero-stats"><div><strong>08</strong><span>аниме в демо</span></div><i></i><div><strong>∞</strong><span>историй впереди</span></div></div>
+      </div>
+      <div class="hero-art" aria-label="Атмосферная иллюстрация">
+        <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
+        <div class="art-glow"></div>
+        <div class="art-kanji">夢</div>
+        <div class="art-caption"><span>FEATURED</span><b>YOUR NEXT<br />OBSESSION</b></div>
+        <div class="art-index">01 <span>/</span> 08</div>
+        <div class="art-line"></div>
+      </div>
+    </section>
+
+    <section id="catalog" class="catalog-section">
+      <div class="section-heading">
+        <div><div class="eyebrow">ОТКРОЙ СВОЮ ИСТОРИЮ</div><h2>Каталог <span class="accent">аниме</span></h2></div>
+        <span class="results-label" id="resultsLabel">8 тайтлов</span>
+      </div>
+      <div class="toolbar">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Название аниме..." autocomplete="off" /><kbd>⌘ K</kbd></label>
+        <div class="toolbar-selects">
+          <select id="genreSelect" aria-label="Фильтр по жанру"><option value="all">Все жанры</option><option value="Экшен">Экшен</option><option value="Фэнтези">Фэнтези</option><option value="Драма">Драма</option><option value="Приключения">Приключения</option><option value="Сёнэн">Сёнэн</option></select>
+          <select id="sortSelect" aria-label="Сортировка"><option value="featured">Сначала избранные</option><option value="rating">Высокий рейтинг</option><option value="az">По названию А—Я</option></select>
+        </div>
+      </div>
+      <div id="genreChips" class="genre-chips">
+        <button class="chip active" data-genre="all">Все</button><button class="chip" data-genre="Экшен">Экшен</button><button class="chip" data-genre="Фэнтези">Фэнтези</button><button class="chip" data-genre="Драма">Драма</button><button class="chip" data-genre="Приключения">Приключения</button>
+      </div>
+      <div id="animeGrid" class="anime-grid" aria-live="polite"></div>
+      <div id="emptyState" class="empty-state hidden"><span>✦</span><h3>Ничего не найдено</h3><p>Попробуй другое название или жанр.</p><button id="resetBtn" class="secondary-btn">Сбросить фильтры</button></div>
+    </section>
+
+    <section id="favorites" class="favorites-section">
+      <div class="section-heading compact-heading"><div><div class="eyebrow">ТВОЯ ЛИЧНАЯ ПОДБОРКА</div><h2>Избранное <span class="accent">♥</span></h2></div></div>
+      <p class="section-note">Нажимай на сердечко у карточки — любимые тайтлы появятся здесь. Список сохраняется на этом устройстве.</p>
+      <div id="favoritesGrid" class="anime-grid favorites-grid"></div>
+      <div id="favoritesEmpty" class="favorites-empty"><span>♡</span> Пока здесь пусто — добавь аниме в избранное.</div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="about-symbol">A<span>.</span>F</div>
+      <div><div class="eyebrow">НЕБОЛЬШОЙ ПРОЕКТ С БОЛЬШОЙ ИДЕЕЙ</div><h2>Создано для тех,<br />кто любит <span class="gradient-text">аниме.</span></h2><p>ANIME.FAIXG — учебный макет сайта. Здесь можно искать тайтлы, фильтровать каталог и сохранять избранное. Позже сюда можно добавить реальные постеры, страницы серий и базу данных.</p></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">A</span><span>ANIME<span class="accent">.</span>FAIXG</span></a><span>Учебный проект · Сделано с ✦</span><a href="#catalog">Наверх ↑</a></footer>
+
+  <div id="animeModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close="true"></div>
+    <article class="modal-card"><button class="modal-close" id="modalClose" aria-label="Закрыть">×</button><div id="modalArt" class="modal-art"></div><div class="modal-content"><div id="modalTags" class="modal-tags"></div><h2 id="modalTitle"></h2><div id="modalMeta" class="modal-meta"></div><p id="modalDescription"></p><button id="modalFavorite" class="primary-btn">♡ Добавить в избранное</button></div></article>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
